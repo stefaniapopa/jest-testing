@@ -1,0 +1,273 @@
+//1. What is Scope in JavaScript?  
+In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's scoped variables.
+A variable name has to be unique within the same scope. A scope can be nested inside another scope. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.
+
+
+//2.Explain Values and Types in JavaScript  
+JavaScript has typed values, not typed variables. The following built-in types are available:
+string
+number
+boolean
+null and undefined
+object
+symbol (new to ES6)
+
+//3.What is let keyword in JavaScript?  
+In addition to creating declarations for variables at the function level, ES6 lets you declare variables to belong to individual blocks (pairs of { .. }), using the let keyword.
+
+//4.Explain the same-origin policy with regards to JavaScript.  
+The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+
+//5.What is the difference between == and ===?  
+== is the abstract equality operator while === is the strict equality operator. The == operator will compare for equality after doing any necessary type conversions. The === operator will not do type conversion, so if two values are not the same type === will simply return false. When using ==, funky things can happen
+
+//6. Is there anyway to force using strict mode in Node.js?  
+you can place
+"use strict";
+at the top of your file in node >= 0.10.7, but if you want your whole app to run in strict (including external modules) you can do this
+node --use_strict
+
+//7.Why would you use something like the load event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?  
+The load event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
+The DOM event DOMContentLoaded will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
+
+//8.What is strict mode?  
+Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a "strict" operating context. This strict context prevents certain actions from being taken and throws more exceptions.
+
+//9.What's the difference between Host objects and Native objects?  
+Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as String, Math, RegExp, Object, Function, etc.
+Host objects are provided by the runtime environment (browser or Node), such as window, XMLHTTPRequest, etc.
+
+//10.What language constructions do you use for iterating over object properties and array items?  
+For objects:
+for loops - for (var property in obj) { console.log(property); }. However, this will also iterate through its inherited properties, and you will add an obj.hasOwnProperty(property) check before using it.
+Object.keys() - Object.keys(obj).forEach(function (property) { ... }). Object.keys() is a static method that will lists all enumerable properties of the object that you pass it.
+Object.getOwnPropertyNames() - Object.getOwnPropertyNames(obj).forEach(function (property) { ... }). Object.getOwnPropertyNames() is a static method that will lists all enumerable and non-enumerable properties of the object that you pass it.
+For arrays:
+for loops - for (var i = 0; i < arr.length; i++). The common pitfall here is that var is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces let which has block scope and it is recommended to use that instead. So this becomes: for (let i = 0; i < arr.length; i++).
+forEach - arr.forEach(function (el, index) { ... }). This construct can be more convenient at times because you do not have to use the index if all you need is the array elements. There are also the every and some methods which will allow you to terminate the iteration early.
+Most of the time, I would prefer the .forEach method, but it really depends on what you are trying to do. for loops allow more flexibility, such as prematurely terminate the loop using break or incrementing the iterator more than once per loop.
+
+//11.What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?  
+Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript, and TypeScript.
+Advantages:
+Fixes some of the longstanding problems in JavaScript and discourages JavaScript anti-patterns.
+Enables you to write shorter code, by providing some syntactic sugar on top of JavaScript, which I think ES5 lacks, but ES2015 is awesome.
+Static types are awesome (in the case of TypeScript) for large projects that need to be maintained over time.
+Disadvantages:
+Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.
+Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.
+Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.
+Smaller community (depends on the language), which means resources, tutorials, libraries, and tooling would be harder to find.
+IDE/editor support might be lacking.
+These languages will always be behind the latest JavaScript standard.
+Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
+Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don't really see the need for CoffeeScript these days.
+
+//12.Explain event bubbling and how one may prevent it  
+Event bubbling is the concept in which an event triggers at the deepest possible element, and triggers on parent elements in nesting order. As a result, when clicking on a child element one may exhibit the handler of the parent activating.
+One way to prevent event bubbling is using event.stopPropagation() or event.cancelBubble on IE < 9.
+
+//13.What does use strict do?  
+The use strict literal is entered at the top of a JavaScript program or at the top of a function and it helps you write safer JavaScript code by throwing an error if a global variable is created by mistake. For example, the following program will throw an error:
+function doSomething(val) {
+  "use strict"; 
+  var x = val + 10;
+}`
+
+//14.Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?  
+Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
+
+//15.What is a Polyfill?  
+Answer
+A polyfill is essentially the specific code (or plugin) that would allow you to have some specific functionality that you expect in current or “modern” browsers to also work in other browsers that do not have the support for that functionality built in.
+Polyfills are not part of the HTML5 standard
+Polyfilling is not limited to Javascript
+
+//16.Explain Null and Undefined in JavaScript  
+JavaScript (and by extension TypeScript) has two bottom types: null and undefined. They are intended to mean different things:
+Something hasn't been initialised : undefined.
+Something is currently unavailable: null.
+
+//17.What's the difference between throw Error('msg') vs throw new Error('msg')?  
+var err1 = Error('message');
+var err2 = new Error('message');
+Which one is correct and why?
+Answer
+Both are fine; the function call Error(…) is equivalent to the object creation expression new Error(…) with the same arguments.
+
+//18.What is IIFEs (Immediately Invoked Function Expressions)?  
+/*It’s an Immediately-Invoked Function Expression, or IIFE for short. It executes immediately after it’s created. his pattern is often used when trying to avoid polluting the global namespace, because all the variables used inside the IIFE (like in any other normal function) are not visible outside its scope.*/
+
+(function IIFE(){
+	console.log( "Hello!" );
+})();
+
+//19.What is Coercion in JavaScript?  
+In JavaScript conversion between different two build-in types called coercion. Coercion comes in two forms in JavaScript: explicit and implicit.
+Here's an example of explicit coercion:
+var a = "42";
+
+var b = Number( a );
+
+a;				// "42"
+b;				// 42 -- the number!
+And here's an example of implicit coercion:
+var a = "42";
+
+var b = a * 1;	// "42" implicitly coerced to 42 here
+
+a;				// "42"
+b;				// 42 -- the number!
+
+//20.What is the difference between a shim and a polyfill?  
+A shim is any piece of code that performs interception of an API call and provides a layer of abstraction. It isn't necessarily restricted to a web application or HTML5/CSS3.
+A polyfill is a type of shim that retrofits legacy browsers with modern HTML5/CSS3 features usually using Javascript or Flash.
+A shim is a library that brings a new API to an older environment, using only the means of that environment. Thus, a polyfill is a shim for a browser API.
+
+//21.What do you think of AMD vs CommonJS?  
+Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
+I find AMD syntax to be quite verbose and CommonJS is closer to the style you would write import statements in other languages. Most of the time, I find AMD unnecessary, because if you served all your JavaScript into one concatenated bundle file, you wouldn't benefit from the async loading properties. Also, CommonJS syntax is closer to Node style of writing modules and there is less context-switching overhead when switching between client side and server side JavaScript development.
+I'm glad that with ES2015 modules, that has support for both synchronous and asynchronous loading, we can finally just stick to one approach. Although it hasn't been fully rolled out in browsers and in Node, we can always use transpilers to convert our code.
+
+//22.Explain the differences on the usage of foo between function foo() {} and var foo = function() {}
+The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). If you try to invoke a function expression before it is defined, you will get an Uncaught TypeError: XXX is not a function error.
+Function Declaration
+
+foo(); // 'FOOOOO'
+function foo() {
+  console.log('FOOOOO');
+}
+Function Expression
+
+foo(); // Uncaught TypeError: foo is not a function
+var foo = function() {
+  console.log('FOOOOO');
+
+//23.What is the preferred syntax for defining enums in JavaScript?  
+Since 1.8.5 it's possible to seal and freeze the object, so define the above as:
+var DaysEnum = Object.freeze({
+    "monday": 1,
+    "tuesday": 2,
+    "wednesday": 3,
+    ...
+})
+or
+var DaysEnum = {
+    "monday": 1,
+    "tuesday": 2,
+    "wednesday": 3,
+    ...
+}
+Object.freeze(DaysEnum)
+and voila! JS enums.
+However, this doesn't prevent you from assigning an undesired value to a variable, which is often the main goal of enums:
+let day = DaysEnum.tuesday
+day = 298832342 // goes through without any errors
+
+//24.Could you explain the difference between ES5 and ES6  
+ECMAScript 5 (ES5): The 5th edition of ECMAScript, standardized in 2009. This standard has been implemented fairly completely in all modern browsers
+ECMAScript 6 (ES6)/ ECMAScript 2015 (ES2015): The 6th edition of ECMAScript, standardized in 2015. This standard has been partially implemented in most modern browsers.
+Here are some key differences between ES5 and ES6:
+Arrow functions & string interpolation:
+Consider:
+const greetings = (name) => {
+      return `hello ${name}`;
+}
+and even:
+const greetings = name => `hello ${name}`;
+Const.
+Const works like a constant in other languages in many ways but there are some caveats. Const stands for ‘constant reference’ to a value. So with const, you can actually mutate the properties of an object being referenced by the variable. You just can’t change the reference itself.
+const NAMES = [];
+NAMES.push("Jim");
+console.log(NAMES.length === 1); // true
+NAMES = ["Steve", "John"]; // error
+Block-scoped variables.
+The new ES6 keyword let allows developers to scope variables at the block level. Let doesn’t hoist in the same way var does.
+Default parameter values Default parameters allow us to initialize functions with default values. A default is used when an argument is either omitted or undefined — meaning null is a valid value.
+// Basic syntax
+function multiply (a, b = 2) {
+     return a * b;
+}
+multiply(5); // 10
+Class Definition and Inheritance
+ES6 introduces language support for classes (class keyword), constructors (constructor keyword), and the extend keyword for inheritance.
+for-of operator
+The for...of statement creates a loop iterating over iterable objects.
+Spread Operator For objects merging
+const obj1 = { a: 1, b: 2 }
+const obj2 = { a: 2, c: 3, d: 4}
+const obj3 = {...obj1, ...obj2}
+Promises
+Promises provide a mechanism to handle the results and errors from asynchronous operations. You can accomplish the same thing with callbacks, but promises provide improved readability via method chaining and succinct error handling.
+const isGreater = (a, b) => {
+  return new Promise ((resolve, reject) => {
+    if(a > b) {
+      resolve(true)
+    } else {
+      reject(false)
+    }
+    })
+}
+isGreater(1, 2)
+  .then(result => {
+    console.log('greater')
+  })
+ .catch(result => {
+    console.log('smaller')
+ })
+Modules exporting & importing Consider module exporting:
+const myModule = { x: 1, y: () => { console.log('This is ES5') }}
+export default myModule;
+and importing:
+import myModule from './myModule';
+
+//25.When should we use generators in ES6?  
+To put it simple, generator has two features:
+one can choose to jump out of a function and let outer code to determine when to jump back into the function.
+the control of asynchronous call can be done outside of your code
+The most important feature in generators — we can get the next value in only when we really need it, not all the values at once. And in some situations it can be very convenient.
+
+//26.Explain Function.prototype.bind.  
+Taken word-for-word from MDN:
+The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+In my experience, it is most useful for binding the value of this in methods of classes that you want to pass into other functions. This is frequently done in React components.
+
+//27.What is the difference between document load event and document DOMContentLoaded event?  
+The DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+window's load event is only fired after the DOM and all dependent resources and assets have loaded.
+
+//28.What advantages are using arrow functions?  
+Scope safety: Until arrow functions, every new function defined its own this value (a new object in the case of a constructor, undefined in strict mode function calls, the base object if the function is called as an "object method", etc.). An arrow function does not create its own this, the this value of the enclosing execution context is used.
+Compactness: Arrow functions are easier to read and write.
+Clarity: When almost everything is an arrow function, any regular function immediately sticks out for defining the scope. A developer can always look up the next-higher function statement to see what the thisObject is.
+
+//29.What is export default in JavaScript?
+As the name says, it's used to export functions, objects, classes or expressions from script files or modules
+Utiliites.js
+
+export function cube(x) {
+  return x * x * x;
+}
+export const foo = Math.PI + Math.SQRT2;
+This can be imported and used as
+App.js
+
+import { cube, foo } from 'Utilities';
+console.log(cube(3)); // 27
+console.log(foo);    // 4.555806215962888
+Or
+import * as utilities from 'Utilities';
+console.log(utilities.cube(3)); // 27
+console.log(utilities.foo);    // 4.555806215962888
+When export default is used, this is much simpler. Script files just exports one thing. cube.js
+
+export default function cube(x) {
+  return x * x * x;
+};
+and used as App.js
+
+import Cube from 'cube';
+console.log(Cube(3)); // 27
+
+//30.
