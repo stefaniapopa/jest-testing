@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1659597338256" clover="3.2.0">
-  <project timestamp="1659597338256" name="All files">
-    <metrics statements="176" coveredstatements="146" conditionals="39" coveredconditionals="19" methods="21" coveredmethods="19" elements="236" coveredelements="184" complexity="0" loc="176" ncloc="176" packages="1" files="20" classes="20"/>
+<coverage generated="1659598997387" clover="3.2.0">
+  <project timestamp="1659598997387" name="All files">
+    <metrics statements="185" coveredstatements="155" conditionals="41" coveredconditionals="21" methods="23" coveredmethods="21" elements="249" coveredelements="197" complexity="0" loc="185" ncloc="185" packages="1" files="22" classes="22"/>
     <file name="1.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\1.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <line num="4" count="1" type="stmt"/>
@@ -135,6 +135,21 @@
       <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <line num="7" count="1" type="stmt"/>
       <line num="8" count="1" type="cond" truecount="2" falsecount="0"/>
+    </file>
+    <file name="21.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\21.js">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+    </file>
+    <file name="22.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\22.js">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="30" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="16" type="stmt"/>
+      <line num="8" count="14" type="stmt"/>
     </file>
     <file name="3.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\3.js">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
