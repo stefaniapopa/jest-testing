@@ -270,4 +270,86 @@ and used as App.js
 import Cube from 'cube';
 console.log(Cube(3)); // 27
 
-//30.
+//30. Implement a Queue using two Stacks
+Problem
+Suppose we have two stacks and no other temporary variable. Is to possible to "construct" a queue data structure using only the two stacks?
+Answer
+Keep two stacks, let's call them inbox and outbox.
+Enqueue:
+Push the new element onto inbox
+Dequeue:
+If outbox is empty, refill it by popping each element from inbox and pushing it onto outbox
+Pop and return the top element from outbox
+
+import { Stack } from "./Stack";
+
+class QueueUsingTwoStacks {
+  constructor() {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
+
+  enqueue(data) {
+    this.stack1.push(data);
+  }
+
+  dequeue() {
+    //if both stacks are empty, return undefined
+    if (this.stack1.size() === 0 && this.stack2.size() === 0)
+      return undefined;
+
+    //if stack2 is empty, pop all elements from stack1 to stack2 till stack1 is empty
+    if (this.stack2.size() === 0) {
+      while (this.stack1.size() !== 0) {
+        this.stack2.push(this.stack1.pop());
+      }
+    }
+
+    //pop and return the element from stack 2
+    return this.stack2.pop();
+  }
+}
+
+export { QueueUsingTwoStacks };
+
+//31.Implement enqueue and dequeue using only two stacks  
+/** Answer
+Enqueue means to add an element, dequeue to remove an element. */
+
+let inputStack = []; // First stack
+let outputStack = []; // Second stack
+bbb   
+// For enqueue, just push the item into the first stack
+function enqueue(stackInput, item) {
+  return stackInput.push(item);
+}
+
+function dequeue(stackInput, stackOutput) {
+  // Reverse the stack such that the first element of the output stack is the
+  // last element of the input stack. After that, pop the top of the output to
+  // get the first element that was ever pushed into the input stack
+  if (stackOutput.length <= 0) {
+    while(stackInput.length > 0) {
+      var elementToOutput = stackInput.pop();
+      stackOutput.push(elementToOutput);
+    }
+  }
+
+  return stackOutput.pop();
+}
+
+//32.How to check if an object is an array or not? Provide some code.  
+/**The best way to find whether an object is instance of a particular class or not using toString method from Object.prototype */
+
+let arrayList = [1 , 2, 3];
+
+function greet() {
+    if(Object.prototype.toString.call(arrayList) === '[object Array]') {
+        console.log('Array!');
+      }
+    else {
+        console.log('Not an array');
+    }
+}
+
+//33.

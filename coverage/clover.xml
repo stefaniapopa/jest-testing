@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1659598997387" clover="3.2.0">
-  <project timestamp="1659598997387" name="All files">
-    <metrics statements="185" coveredstatements="155" conditionals="41" coveredconditionals="21" methods="23" coveredmethods="21" elements="249" coveredelements="197" complexity="0" loc="185" ncloc="185" packages="1" files="22" classes="22"/>
+<coverage generated="1660054538987" clover="3.2.0">
+  <project timestamp="1660054538987" name="All files">
+    <metrics statements="221" coveredstatements="191" conditionals="43" coveredconditionals="23" methods="27" coveredmethods="25" elements="291" coveredelements="239" complexity="0" loc="221" ncloc="221" packages="1" files="26" classes="26"/>
     <file name="1.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\1.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <line num="4" count="1" type="stmt"/>
@@ -150,6 +150,54 @@
       <line num="5" count="30" type="cond" truecount="2" falsecount="0"/>
       <line num="6" count="16" type="stmt"/>
       <line num="8" count="14" type="stmt"/>
+    </file>
+    <file name="23.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\23.js">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="16" count="12" type="stmt"/>
+      <line num="18" count="12" type="stmt"/>
+      <line num="20" count="9" type="stmt"/>
+      <line num="23" count="12" type="stmt"/>
+      <line num="26" count="3" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="30" count="1" type="stmt"/>
+    </file>
+    <file name="24.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\24.js">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+    </file>
+    <file name="25.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\25.js">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="8" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+    </file>
+    <file name="26.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\26.js">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="14" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="6" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
     </file>
     <file name="3.js" path="C:\Users\Stefy\Desktop\fs cafe\questions\3.js">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
