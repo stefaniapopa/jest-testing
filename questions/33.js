@@ -6,3 +6,29 @@ For example, if the array is [3, 5, 2, -4, 8, 11] and the sum is 7, your program
 Answer
 The algorithm below makes use of hash tables which have a constant lookup time. As we pass through each element in the array, we check to see if S minus the current element exists in the hash table. We only need to loop through the array once, resulting in a running time of O(n) since each lookup and insertion in a hash table is O(1). */
 
+module.exports = function twoSum(arr, S) {
+
+    var sums = [];
+    var hashTable = {};
+  
+    // check each element in array
+    for (var i = 0; i < arr.length; i++) {
+   
+      // calculate S - current element
+      var sumMinusElement = S - arr[i];
+  
+      // check if this number exists in hash table
+      // if so then we found a pair of numbers that sum to S
+      if (hashTable[sumMinusElement.toString()] !== undefined) { 
+        sums.push([arr[i], sumMinusElement]);
+      }
+  
+      // add the current number to the hash table
+      hashTable[arr[i].toString()] = arr[i];
+  
+    }
+  
+    // return all pairs of integers that sum to S
+    return sums;
+  
+  }
